@@ -1,0 +1,185 @@
+:root{
+    --color1:#000000;
+    --color2:#ffffff;
+    --color3:#0b0120;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.body {
+    font-family: sans-serif;
+    font-size: 1rem;
+    display: flex;
+    align-content: center;
+}
+
+.contenedor {
+    border: 0px solid;
+    margin: auto;
+    display: flex;
+    flex-direction: row; /*solo una fila*/
+    flex-wrap: wrap;   /*lo que no quepa quede debajo*/
+    height: 82.9vh;  /*Espacio que ocupa*/
+}
+
+/*Inicio header*/
+header{
+   width:100%;
+   background-color: var(--color1);
+   padding: 10px;
+   /** flexbox **/
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+header .foto img{
+    width: 90px;
+    height:90px;
+    background-color: var(--color1);
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+header .foto a{
+    color: #fff;
+    font-size: 30px; /*Tamaño de la fuente*/
+    font-family:'prompt' ,sans-serif;
+    text-decoration: none;
+    line-height: 80px;
+}
+
+header nav{
+    font-family: sans-serif;
+    width: 40%;
+    background-color: var(--color1);
+    display: flex;
+    flex-wrap: wrap;/*Hace que el bloque de menu abarque el 100% del ancho*/
+    align-items: center;
+    font-size:20px;
+}
+
+ nav :hover{
+  background-color: var(--color2);/*hover cambio de color del boton*/
+  color:black;
+}
+
+header nav a{
+color:#fff;
+text-decoration: none;
+text-align: center;
+padding: 8px;
+
+flex-grow: 1;
+}
+/*Final header*/
+
+/*Cominezo main*/
+
+.contenedor-imagenes {
+    background-color:rgb(5, 76, 94) ;
+    height: 100%;
+    flex-grow: 1;
+    flex-basis: 70%; 
+    flex-shrink: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-imagenes .imagen {
+    position: relative;
+    margin-right: -20px;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.contenedor-imagenes .imagen img{
+    width: 250px;
+    height: 250px;
+    transition: transform 0.5s ease-in-out;
+    padding: 30px;
+    filter: drop-shadow(-2px 2px 15px var(--color3));
+}
+
+.contenedor-imagenes .imagen:hover img{
+    transform: translateY(-20px);
+    transform: scale(1.2,1.2);
+}
+
+.contenedor-imagenes .imagen .nombre-club{
+    position: absolute;
+    background-color: var(--color1);
+    border-radius: 5px;
+    color: var(--color2);
+    display: none;
+    min-width: 100px;
+    width: 150px;
+    top: -60px;
+    padding: 10px 15px;
+}
+
+.contenedor-imagenes .imagen .nombre-club .texto{
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    width:150px;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-imagenes .imagen:hover .nombre-club{
+    display: inline-block;
+    transform: translateY(-20px);
+}
+
+.contenedor-imagenes .imagen .nombre-club::before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 1px;
+  /*border: 5px solid var(--color2);*/
+    bottom: -20px;
+    left: 50%;
+    border-top: 10px solid rgb(0, 0, 0) ;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+
+}
+/*Fin de main */
+
+@media (max-width: 550px){
+
+    header{
+        flex-direction: column;
+        padding: 0;
+        }
+        header .foto{
+        margin: 20px 0;
+        }
+        header nav{
+        width: 100%;
+        }
+
+    .contenedor-imagenes{
+        flex-direction: column;
+        height: 200vh;
+    }
+}
+
+@media (max-width: 1200px){
+       header{
+        padding: 10px 0;
+       }
+       .contenedor-imagenes{
+        flex-direction: column;
+        height: 200vh
+       }
+}
